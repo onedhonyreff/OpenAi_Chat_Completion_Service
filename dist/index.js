@@ -140,6 +140,12 @@ async function handleChatCompletion(req, res) {
         });
         return;
     }
+    res.status(200).json({
+        status: false,
+        statusCode: 200,
+        error: "Intercepted",
+    });
+    return;
     try {
         let proofToken = GenerateProofToken(session.proofofwork.seed, session.proofofwork.difficulty, userAgent);
         const body = {
