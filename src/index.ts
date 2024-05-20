@@ -226,7 +226,9 @@ function handleErrorResponse(error: any): ApiResponse {
 }
 
 function handleDefault(req: Request, res: Response) {
-    res.write("Welcome OpenAI Chat Completion API - The service running correctly");
+    res.write(
+        "Welcome OpenAI Chat Completion API - The service running correctly"
+    );
     return res.end();
 }
 
@@ -234,6 +236,12 @@ async function handleChatCompletion(req: Request, res: Response) {
     const completionRequest: CompletionRequest = req.body;
     const session = completionRequest.session;
     const conversation = completionRequest.conversation;
+
+    console.log(
+        `Incoming request: ${session.deviceId} - ${
+            conversation.messages[conversation.messages.length - 1].content
+        }`
+    );
 
     if (!session) {
         res.status(400).json({

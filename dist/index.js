@@ -131,6 +131,7 @@ async function handleChatCompletion(req, res) {
     const completionRequest = req.body;
     const session = completionRequest.session;
     const conversation = completionRequest.conversation;
+    console.log(`Incoming request: ${session.deviceId} - ${conversation.messages[conversation.messages.length - 1].content}`);
     if (!session) {
         res.status(400).json({
             status: false,
