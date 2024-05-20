@@ -226,7 +226,7 @@ function handleErrorResponse(error: any): ApiResponse {
 }
 
 function handleDefault(req: Request, res: Response) {
-    res.write("Welcome to OpenAI Reverse API");
+    res.write("Welcome OpenAI Chat Completion API - The service running correctly");
     return res.end();
 }
 
