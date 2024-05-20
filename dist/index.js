@@ -242,6 +242,9 @@ async function handleChatCompletion(req, res) {
     }
     catch (error) {
         const errorResponse = handleErrorResponse(error);
+        if (!errorResponse.error) {
+            errorResponse.error = "Error while getting completions...";
+        }
         res.setHeader("Content-Type", "application/json");
         res.status(errorResponse.statusCode).json(errorResponse);
     }
