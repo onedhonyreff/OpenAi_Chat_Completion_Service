@@ -1,0 +1,36 @@
+{
+    "name": "openai_chat_completion",
+    "version": "1.0.0",
+    "description": "n/a",
+    "type": "module",
+    "main": "index.js",
+    "scripts": {
+        "start": "tsc && node dist/index.js",
+        "watch": "tsc-watch --onSuccess \"node dist/index.js\"",
+        "build": "rimraf dist && tsc",
+        "ts.check": "tsc --project tsconfig.json",
+        "add-build": "git add -f dist",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "pre-commit": [
+        "ts.check",
+        "build",
+        "add-build"
+    ],
+    "author": "Fikri",
+    "license": "AGPL-3.0",
+    "dependencies": {
+        "axios": "^1.6.7",
+        "body-parser": "^1.20.2",
+        "dotenv": "^16.4.5",
+        "express": "^4.18.3",
+        "gpt-3-encoder": "^1.1.4"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.21",
+        "pre-commit": "^1.2.2",
+        "rimraf": "^5.0.7",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.3.3"
+    }
+}
