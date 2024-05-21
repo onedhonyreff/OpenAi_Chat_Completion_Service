@@ -2,14 +2,11 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "dist/api/index.js"
+      "destination": "api/index.js"
     }
   ],
   "functions": {
-    "dist/api/index.js": {
-      "maxDuration": 60
-    },
-    "src/api/index.ts": {
+    "api/index.js": {
       "maxDuration": 60
     }
   }
