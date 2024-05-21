@@ -259,6 +259,8 @@ async function handleChatCompletion(req: Request, res: Response) {
             userAgent
         );
 
+        const aiModel = conversation.model ?? "text-davinci-002-render-sha";
+
         const body = {
             action: "next",
             messages: conversation.messages.map(
@@ -268,7 +270,7 @@ async function handleChatCompletion(req: Request, res: Response) {
                 })
             ),
             parent_message_id: randomUUID(),
-            model: conversation.model ?? "text-davinci-002-render-sha",
+            model: aiModel,
             timezone_offset_min: -180,
             suggestions: [],
             history_and_training_disabled: true,
@@ -355,7 +357,7 @@ async function handleChatCompletion(req: Request, res: Response) {
         const completionResult: CompletionResult = {
             id: requestId,
             created: created,
-            model: "gpt-3.5-turbo",
+            model: aiModel,
             object: "chat.completion",
             choices: [
                 {

@@ -142,6 +142,7 @@ async function handleChatCompletion(req, res) {
     }
     try {
         let proofToken = GenerateProofToken(session.proofofwork.seed, session.proofofwork.difficulty, userAgent);
+        const aiModel = conversation.model ?? "text-davinci-002-render-sha";
         const body = {
             action: "next",
             messages: conversation.messages.map((message) => ({
@@ -149,7 +150,7 @@ async function handleChatCompletion(req, res) {
                 content: { content_type: "text", parts: [message.content] },
             })),
             parent_message_id: randomUUID(),
-            model: conversation.model ?? "text-davinci-002-render-sha",
+            model: aiModel,
             timezone_offset_min: -180,
             suggestions: [],
             history_and_training_disabled: true,
@@ -220,7 +221,7 @@ async function handleChatCompletion(req, res) {
         const completionResult = {
             id: requestId,
             created: created,
-            model: "gpt-3.5-turbo",
+            model: aiModel,
             object: "chat.completion",
             choices: [
                 {
