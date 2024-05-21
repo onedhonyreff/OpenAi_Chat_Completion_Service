@@ -5,11 +5,11 @@
     "type": "module",
     "main": "index.js",
     "scripts": {
-        "start": "tsc && node dist/index.js",
-        "watch": "tsc-watch --onSuccess \"node dist/index.js\"",
-        "build": "rimraf dist && tsc",
+        "start": "tsc && node api/index.js",
+        "watch": "tsc-watch --onSuccess \"node api/index.js\"",
+        "build": "rimraf api && tsc",
         "ts.check": "tsc --project tsconfig.json",
-        "add-build": "git add -f dist",
+        "add-build": "git add -f api",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "pre-commit": [

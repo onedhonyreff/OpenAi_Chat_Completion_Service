@@ -9,7 +9,7 @@
         "experimentalDecorators": true,
         "allowSyntheticDefaultImports": true,
         "sourceMap": true,
-        "outDir": "./dist",
+        "outDir": "./api",
         "baseUrl": "./",
         "paths": {
             "@/*": ["src/*"]
@@ -24,5 +24,5 @@
         "noFallthroughCasesInSwitch": false
     },
     "include": ["src"],
-    "exclude": ["node_modules", "dist"]
+    "exclude": ["node_modules", "api"]
 }
