@@ -392,7 +392,7 @@ app.use(bodyParser.json());
 app.use(enableCORS);
 
 app.get("/", handleDefault);
-app.post("/v1/chat-completion", handleChatCompletion);
+app.post("/v1/generate-conversation", handleChatCompletion);
 
 app.use((req, res) =>
     res.status(404).send({
