@@ -5,8 +5,8 @@
     "type": "module",
     "main": "index.js",
     "scripts": {
-        "start": "tsc && node dist/index.js",
-        "watch": "tsc-watch --onSuccess \"node dist/index.js\"",
+        "start": "tsc && node dist/api/index.js",
+        "watch": "tsc-watch --onSuccess \"node dist/api/index.js\"",
         "build": "rimraf dist && tsc",
         "ts.check": "tsc --project tsconfig.json",
         "add-build": "git add -f dist",
