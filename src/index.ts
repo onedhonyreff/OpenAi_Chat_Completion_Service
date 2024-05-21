@@ -252,13 +252,6 @@ async function handleChatCompletion(req: Request, res: Response) {
         return;
     }
 
-    res.status(200).json({
-        status: false,
-        statusCode: 200,
-        error: "Intercepted",
-    });
-    return;
-
     try {
         let proofToken = GenerateProofToken(
             session.proofofwork.seed,
